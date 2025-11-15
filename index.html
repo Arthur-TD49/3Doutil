@@ -573,6 +573,268 @@
             color: #764ba2;
         }
 
+        /* Menu hamburger */
+        .hamburger-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+
+        .hamburger-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+            transition: all 0.3s ease;
+            gap: 5px;
+        }
+
+        .hamburger-icon:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.7);
+        }
+
+        .hamburger-icon span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-icon.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .hamburger-icon.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-icon.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Menu latéral */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.3);
+            z-index: 9998;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .side-menu.active {
+            right: 0;
+        }
+
+        .side-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .side-menu-header h3 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-menu:hover {
+            transform: rotate(90deg);
+            color: #764ba2;
+        }
+
+        .side-menu-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .menu-item {
+            padding: 1rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+
+        .menu-item:hover {
+            transform: translateX(10px);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-left: 4px solid white;
+        }
+
+        .menu-item.active-menu {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-left: 4px solid white;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9997;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Section maison bioclimatique */
+        .bioclimatic-hero {
+            background: linear-gradient(135deg, rgba(34, 193, 195, 0.9) 0%, rgba(45, 253, 139, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            color: white;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bioclimatic-hero::before {
+            content: '🌿';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            right: -50px;
+            bottom: -50px;
+            animation: float-emoji 6s ease-in-out infinite;
+        }
+
+        @keyframes float-emoji {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .bioclimatic-hero h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            -webkit-text-fill-color: white;
+            border: none;
+        }
+
+        .principle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .principle-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-top: 5px solid #22c1c3;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(34, 193, 195, 0.3);
+        }
+
+        .principle-card h4 {
+            color: #22c1c3;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #22c1c3;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(34, 193, 195, 0.3);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #22c1c3 0%, #2dfd8b 100%);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            box-shadow: 0 5px 15px rgba(34, 193, 195, 0.4);
+        }
+
+        .feature-list {
+            background: #e8f8f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #d4f1e8;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .important-note {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 5px solid #e17055;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
         /* Scroll reveal animation */
         .scroll-reveal {
             opacity: 0;
@@ -606,6 +868,32 @@
     <!-- Background animé avec particules -->
     <div class="bg-animation" id="bgAnimation"></div>
 
+    <!-- Menu hamburger -->
+    <div class="hamburger-menu" id="hamburgerMenu">
+        <div class="hamburger-icon" id="hamburgerIcon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Menu latéral -->
+    <div class="side-menu" id="sideMenu">
+        <div class="side-menu-header">
+            <h3>📚 Menu</h3>
+            <button class="close-menu" id="closeMenu">✕</button>
+        </div>
+        <nav class="side-menu-nav">
+            <a href="#accueil" class="menu-item">🏠 Accueil</a>
+            <a href="#bioclimatique" class="menu-item active-menu">🌿 Maison Bioclimatique</a>
+            <a href="#tutoriel" class="menu-item">📖 Tutoriel complet</a>
+            <a href="#telechargements" class="menu-item">📥 Téléchargements</a>
+        </nav>
+    </div>
+
+    <!-- Overlay pour fermer le menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
     <header>
         <h1>🏠 Sweet Home 3D</h1>
         <p class="subtitle">Découvre le monde de la modélisation 3D !</p>
@@ -615,6 +903,171 @@
         <div class="intro-section">
             <h2>🎯 C'est quoi Sweet Home 3D ?</h2>
             <p>Sweet Home 3D est un logiciel gratuit qui te permet de créer des maisons et des pièces en <strong>trois dimensions</strong>. Tu peux dessiner des plans, placer des meubles, et voir le résultat en 3D comme si tu étais dans un jeu vidéo !</p>
+        </div>
+
+        <!-- Section Maison Bioclimatique -->
+        <div id="bioclimatique" class="bioclimatic-hero">
+            <h2>🌿 Créer une Maison Bioclimatique sur Sweet Home 3D</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">Une maison bioclimatique est une habitation écologique qui utilise intelligemment les ressources naturelles (soleil, vent, végétation) pour réduire sa consommation d'énergie. Voici comment la créer dans Sweet Home 3D !</p>
+        </div>
+
+        <div class="card">
+            <h2>🌍 Les 5 Principes de la Maison Bioclimatique</h2>
+            <div class="principle-grid">
+                <div class="principle-card">
+                    <div class="emoji">☀️</div>
+                    <h4>1. Orientation au Sud</h4>
+                    <p>Les grandes ouvertures (fenêtres, baies vitrées) doivent être orientées au sud pour capter un maximum de soleil en hiver.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="emoji">🏠</div>
+                    <h4>2. Isolation thermique</h4>
+                    <p>Des murs épais et bien isolés pour garder la chaleur l'hiver et la fraîcheur l'été.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="emoji">🌳</div>
+                    <h4>3. Végétation stratégique</h4>
+                    <p>Arbres à feuilles caduques au sud (ombre en été, soleil en hiver) et persistants au nord (protection du vent).</p>
+                </div>
+                <div class="principle-card">
+                    <div class="emoji">💨</div>
+                    <h4>4. Ventilation naturelle</h4>
+                    <p>Des ouvertures placées intelligemment pour créer des courants d'air et rafraîchir la maison naturellement.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="emoji">🔆</div>
+                    <h4>5. Énergie solaire</h4>
+                    <p>Panneaux solaires, chauffe-eau solaire pour produire sa propre énergie propre.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" id="tutoriel">
+            <h2>📐 Tutoriel : Créer ta Maison Bioclimatique</h2>
+            
+            <div class="step-card">
+                <h3><span class="step-number">1</span>Préparation et Orientation</h3>
+                <ul class="feature-list">
+                    <li><strong>📍 Définir l'orientation :</strong> Dans Sweet Home 3D, va dans <em>Plan → Boussole</em> pour afficher le Nord. Ta maison doit avoir ses grandes ouvertures au Sud.</li>
+                    <li><strong>📏 Dimensions recommandées :</strong> Pour une maison de 100m², prévois environ 12m x 8m</li>
+                    <li><strong>🎯 Forme optimale :</strong> Privilégie une forme rectangulaire allongée d'Est en Ouest</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">2</span>Dessiner le Plan de Base</h3>
+                <ul class="feature-list">
+                    <li><strong>🧱 Créer les murs extérieurs :</strong> Utilise l'outil "Créer des murs" et trace un rectangle. Augmente l'épaisseur des murs à <strong>30-40 cm</strong> pour l'isolation (clic droit sur le mur → Modifier le mur)</li>
+                    <li><strong>🚪 Disposition des pièces :</strong>
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Au Sud : Pièces de vie (salon, salle à manger, cuisine)</li>
+                            <li>Au Nord : Pièces techniques (garage, cellier, salle de bain)</li>
+                            <li>À l'Est : Chambres (soleil levant)</li>
+                        </ul>
+                    </li>
+                    <li><strong>📐 Créer les cloisons :</strong> Trace les murs intérieurs (épaisseur 10-15 cm)</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">3</span>Ajouter les Ouvertures Stratégiques</h3>
+                <ul class="feature-list">
+                    <li><strong>🪟 Façade Sud (40-50% de surface vitrée) :</strong>
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Ajoute de grandes baies vitrées (2-3m de large minimum)</li>
+                            <li>Utilise <em>Porte et Fenêtre → Porte-fenêtre</em></li>
+                            <li>Multiplie les fenêtres pour maximiser la lumière</li>
+                        </ul>
+                    </li>
+                    <li><strong>🪟 Façade Nord (10-15% de surface vitrée) :</strong> Petites fenêtres uniquement pour l'aération</li>
+                    <li><strong>🪟 Façades Est et Ouest :</strong> Fenêtres moyennes (30% de surface)</li>
+                    <li><strong>💡 Astuce :</strong> Pour ajouter une fenêtre, clique sur <em>Porte et Fenêtre</em>, choisis ton modèle et clique sur le mur</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">4</span>Ajouter les Éléments Bioclimatiques</h3>
+                <ul class="feature-list">
+                    <li><strong>🌞 Auvent/Casquette solaire au Sud :</strong>
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Crée une avancée de toit de 80cm-1m au-dessus des baies vitrées</li>
+                            <li>Utilise l'outil <em>Créer une pièce</em> puis <em>Ajouter un toit</em></li>
+                            <li>Cela bloque le soleil haut de l'été mais laisse passer le soleil bas de l'hiver</li>
+                        </ul>
+                    </li>
+                    <li><strong>☀️ Panneaux solaires :</strong> Ajoute des rectangles sur le toit (texture personnalisée bleue/noire) orientés Sud avec inclinaison 30-35°</li>
+                    <li><strong>🌳 Végétation :</strong>
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Au Sud : Arbres à feuilles caduques (pommier, cerisier)</li>
+                            <li>Au Nord : Arbres persistants (pins, sapins) pour couper le vent</li>
+                            <li>Va dans <em>Meubles → Extérieur → Plantes</em></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">5</span>Optimiser l'Isolation et les Matériaux</h3>
+                <ul class="feature-list">
+                    <li><strong>🏠 Choix des matériaux :</strong>
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Murs : Pierre, brique, béton (texture grise/beige)</li>
+                            <li>Toiture : Tuiles terre cuite ou ardoise (couleur foncée pour absorber la chaleur)</li>
+                            <li>Menuiseries : Bois (meilleur isolant naturel)</li>
+                        </ul>
+                    </li>
+                    <li><strong>🎨 Appliquer les textures :</strong> Clic droit sur élément → <em>Modifier</em> → choisir couleur/texture dans la bibliothèque</li>
+                    <li><strong>💡 Isolation visuelle :</strong> Tu peux représenter l'isolation par une double épaisseur de mur ou une couleur spécifique</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">6</span>Aménager l'Intérieur Écologique</h3>
+                <ul class="feature-list">
+                    <li><strong>🛋️ Pièce de vie (Sud) :</strong> Canapé, table, TV orientés vers les baies vitrées</li>
+                    <li><strong>🔥 Poêle à bois central :</strong> Cherche dans <em>Meubles → Chauffage</em> et place-le au centre pour diffuser la chaleur partout</li>
+                    <li><strong>🌿 Plantes d'intérieur :</strong> Ajoute des plantes pour améliorer la qualité de l'air</li>
+                    <li><strong>💧 Récupérateur d'eau :</strong> Place une cuve à l'extérieur près d'une descente de gouttière</li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="step-number">7</span>Créer l'Environnement Extérieur</h3>
+                <ul class="feature-list">
+                    <li><strong>🏡 Terrasse au Sud :</strong> Utilise <em>Créer une pièce</em> et applique une texture bois ou dalle. Dimensions : 4m x 3m minimum</li>
+                    <li><strong>🌱 Potager :</strong> Crée des carrés de jardin avec texture terre/végétation</li>
+                    <li><strong>💧 Bassin/Mare :</strong> Pour réguler l'humidité naturellement</li>
+                    <li><strong>🚗 Abri voiture :</strong> Simple toit sans murs au Nord-Ouest</li>
+                </ul>
+            </div>
+
+            <div class="important-note">
+                <h3>⚠️ Points Importants à Respecter</h3>
+                <ul style="margin-left: 1.5rem; line-height: 2;">
+                    <li><strong>Compacité :</strong> Évite les formes trop complexes, privilégie les formes simples</li>
+                    <li><strong>Pas de fenêtres face au vent dominant</strong> (généralement Nord-Ouest en France)</li>
+                    <li><strong>Altitude des pièces :</strong> Chambres à l'étage (air chaud monte) et pièces fraîches au rez-de-chaussée</li>
+                    <li><strong>Couleurs claires</strong> à l'intérieur pour refléter la lumière</li>
+                    <li><strong>Étiquette énergétique :</strong> Ajoute une note "A" ou "A+" sur ton plan (texte)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>✅ Checklist Finale de ton Projet</h2>
+            <div class="feature-list">
+                <li>☑️ Orientation correcte (façade principale au Sud)</li>
+                <li>☑️ 40-50% de surface vitrée au Sud</li>
+                <li>☑️ Murs épais (30-40cm) pour isolation</li>
+                <li>☑️ Auvent/casquette solaire au Sud</li>
+                <li>☑️ Panneaux solaires sur le toit</li>
+                <li>☑️ Arbres stratégiquement placés</li>
+                <li>☑️ Pièces de vie au Sud, techniques au Nord</li>
+                <li>☑️ Poêle à bois ou système de chauffage central</li>
+                <li>☑️ Terrasse au Sud</li>
+                <li>☑️ Vue 3D réaliste et détaillée</li>
+                <li>☑️ Légendes et annotations sur le plan</li>
+            </div>
         </div>
 
         <div class="card">
@@ -731,87 +1184,142 @@
                     
                     <p><strong>🔹 Thingiverse</strong><br>
                     <a href="https://www.thingiverse.com" target="_blank">thingiverse.com</a><br>
-                    La plus grande base de données avec près de 1,7 million de modèles, entièrement gratuit        <p><strong>📌 Page de recherche Sweet Home 3D</strong><br>
-            <a href="https://www.sweethome3d.com/models.jsp" target="_blank">sweethome3d.com/models.jsp</a><br>
-            Trouve des milliers d’objets partagés par la communauté.</p>
+                    La plus grande base de données avec près de 1,7 million de modèles, entièrement gratuit !</p>
+                    
+                    <p><strong>🔹 Cults3D</strong><br>
+                    <a href="https://cults3d.com/fr" target="_blank">cults3d.com</a><br>
+                    2,8 millions de modèles gratuits et payants, interface en français.</p>
+                    
+                    <p><strong>🔹 MyMiniFactory</strong><br>
+                    <a href="https://www.myminifactory.com" target="_blank">myminifactory.com</a><br>
+                    Modèles vérifiés par la communauté, garantie de qualité.</p>
+                    
+                    <p><strong>🔹 GrabCAD</strong><br>
+                    <a href="https://grabcad.com" target="_blank">grabcad.com</a><br>
+                    Idéal pour des objets techniques et du mobilier précis.</p>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #e7f3ff 0%, #cfe2ff 100%); padding: 1.5rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                <h3 style="color: #004085; margin-bottom: 0.5rem;">💡 Comment utiliser ces modèles ?</h3>
+                <ol style="margin-left: 1.5rem; line-height: 1.8;">
+                    <li>Recherche l'objet que tu veux (chaise, table, lampe...)</li>
+                    <li>Télécharge le fichier (formats compatibles : OBJ, 3DS, DAE, KMZ)</li>
+                    <li>Dans Sweet Home 3D, va dans <strong>Meubles → Importer meuble</strong></li>
+                    <li>Sélectionne le fichier téléchargé</li>
+                    <li>Ajuste la taille et place-le dans ta création !</li>
+                </ol>
+            </div>
+
+            <div class="tips" style="margin-top: 1rem;">
+                <strong>⚠️ Important :</strong> Vérifie toujours les licences des modèles que tu télécharges. La plupart sont libres d'utilisation pour des projets scolaires, mais certains ont des restrictions.
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🎓 Ce que tu vas apprendre</h2>
+            <ul style="list-style-position: inside; padding-left: 1rem;">
+                <li>Comprendre les <strong>trois dimensions</strong> (X, Y, Z)</li>
+                <li>Passer d'une vue 2D à une vue 3D</li>
+                <li>Respecter les <strong>échelles</strong> et les proportions</li>
+                <li>Utiliser un logiciel de modélisation</li>
+                <li>Développer ta <strong>créativité</strong> et ton sens de l'espace</li>
+                <li>Apprendre les bases de l'architecture</li>
+            </ul>
         </div>
     </div>
-    
-    <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 1.5rem; border-radius: 10px; margin-bottom: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-        <h3 style="color: #764ba2; margin-bottom: 0.5rem;">🌐 Autres sites pour modèles 3D gratuits</h3>
-        <div style="margin-left: 1rem;">
-            <p><strong>📌 Sketchfab</strong><br>
-            <a href="https://sketchfab.com" target="_blank">sketchfab.com</a><br>
-            Une immense bibliothèque de modèles 3D. Certains sont gratuits, d’autres payants.</p>
 
-            <p><strong>📌 Free3D</strong><br>
-            <a href="https://free3d.com" target="_blank">free3d.com</a><br>
-            Parfait pour récupérer des modèles simples pour Sweet Home 3D.</p>
+    <footer>
+        <p><strong>Bon courage pour ton projet !</strong></p>
+        <p>N'hésite pas à expérimenter et à laisser parler ta créativité 🎨</p>
+    </footer>
 
-            <p><strong>📌 CGTrader</strong><br>
-            <a href="https://cgtrader.com" target="_blank">cgtrader.com</a><br>
-            Beaucoup de modèles gratuits. Qualité professionnelle.</p>
+    <script>
+        // Créer les particules animées
+        const bgAnimation = document.getElementById('bgAnimation');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.width = Math.random() * 5 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            bgAnimation.appendChild(particle);
+        }
 
-            <p><strong>📌 Archive3D</strong><br>
-            <a href="https://archive3d.net" target="_blank">archive3d.net</a><br>
-            Immense base d'objets très variés (meubles, lampes, décorations…).</p>
-        </div>
-    </div>
-</div>
+        // Masquer le loader après le chargement
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 2000);
+        });
 
-<footer>
-    <div class="emoji">🏡</div>
-    <p>Sweet Home 3D - Site éducatif créé pour découvrir la 3D ✨</p>
-    <p>© 2025 - Réalisé avec passion</p>
-</footer>
-</div>
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-<!-- -------------------------------------- -->
-<!--     JAVASCRIPT DU SITE COMPLET         -->
-<!-- -------------------------------------- -->
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
 
-<script>
-// Loader disparition
-window.addEventListener("load", () => {
-    const loader = document.getElementById("loader");
-    setTimeout(() => loader.classList.add("hidden"), 1800);
-});
+        // Observer toutes les cartes
+        document.querySelectorAll('.card').forEach(card => {
+            card.classList.add('scroll-reveal');
+            observer.observe(card);
+        });
 
-// Génération des particules
-const bg = document.getElementById("bgAnimation");
+        // Gestion du menu hamburger
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sideMenu = document.getElementById('sideMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+        const closeMenu = document.getElementById('closeMenu');
+        const menuItems = document.querySelectorAll('.menu-item');
 
-function createParticle() {
-    const particle = document.createElement("div");
-    particle.classList.add("particle");
-    
-    const size = Math.random() * 8 + 2;
-    particle.style.width = size + "px";
-    particle.style.height = size + "px";
-    particle.style.left = Math.random() * window.innerWidth + "px";
-    particle.style.bottom = "-10px";
-    particle.style.animationDuration = (Math.random() * 10 + 10) + "s";
-    
-    bg.appendChild(particle);
-    setTimeout(() => particle.remove(), 15000);
-}
+        function toggleMenu() {
+            hamburgerIcon.classList.toggle('active');
+            sideMenu.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+        }
 
-setInterval(createParticle, 200);
+        hamburgerIcon.addEventListener('click', toggleMenu);
+        closeMenu.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
 
-// Scroll reveal
-const reveals = document.querySelectorAll('.card, .intro-section, .interactive-section');
-
-function revealOnScroll() {
-    const trigger = window.innerHeight * 0.8;
-
-    reveals.forEach(el => {
-        const rect = el.getBoundingClientRect().top;
-        if (rect < trigger) el.classList.add("active");
-    });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-</script>
-
+        // Navigation fluide
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                
+                if (targetId.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    // Retirer la classe active de tous les items
+                    menuItems.forEach(mi => mi.classList.remove('active-menu'));
+                    // Ajouter la classe active à l'item cliqué
+                    this.classList.add('active-menu');
+                    
+                    // Fermer le menu
+                    toggleMenu();
+                    
+                    // Scroller vers la section
+                    if (targetId === '#accueil') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
